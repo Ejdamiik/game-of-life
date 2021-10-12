@@ -1,0 +1,7 @@
+{
+    "mode": 1,
+    "color_cells": [0, 200, 0],
+    "color_bg": [0, 0, 0],
+    "dimensions": [25,25],
+    "screen_size": [600, 600]
+}
