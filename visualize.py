@@ -1,6 +1,5 @@
 import pygame as pg
 import sys
-import time
 import life
 from pygame.locals import *
 from typing import Optional, List, Tuple
@@ -35,7 +34,6 @@ class MatrixVizualizer:
         self.bg_color = bg_color
         self.cell_color = cell_color
 
-        self.delay = delay
         self.mode = mode
 
         # initializing pygame window
@@ -55,6 +53,9 @@ class MatrixVizualizer:
 
         self.grid_node_width = self.width // self.mcolumn
         self.grid_node_height = self.height // self.mrow
+
+        self.MOVEEVENT, t = pg.USEREVENT+1, delay
+        pg.time.set_timer(self.MOVEEVENT, t)
 
         if self.mode == 3:  # We want grid only in particular mode
             self.initialize_grid()
@@ -138,8 +139,7 @@ class MatrixVizualizer:
                     pg.quit()
                     sys.exit()
 
-                else:
-                    time.sleep(self.delay)
+                elif event.type == self.MOVEEVENT:
                     self.click()
 
             pg.display.update()
