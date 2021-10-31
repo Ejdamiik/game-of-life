@@ -4,17 +4,19 @@ import life
 from pygame.locals import *
 from typing import Optional, List, Tuple
 
+Grid = List[List[int]]
+Color = Tuple[int, int, int]
 
 class MatrixVizualizer:
 
     def __init__(self,
-        base_matrix: List,
+        base_matrix: Grid,
         mode: int,
         delay: float,
-        bg_color: Tuple,
-        cell_color: Tuple,
-        width = 400,
-        height = 400) -> None:
+        bg_color: Color,
+        cell_color: Color,
+        width: int,
+        height: int) -> None:
         """
         Explanation of arguments:
         - base_matrix : matrix which we start our game with
@@ -84,13 +86,13 @@ class MatrixVizualizer:
         pg.display.update()
 
 
-    def createSquare(self, x: int, y: int, color: Tuple) -> None:
+    def createSquare(self, x: int, y: int, color: Color) -> None:
         pg.draw.rect(self.screen, color, [
                      x + self.starting_margin, y + self.starting_margin,
                       self.grid_node_width - self.ending_margin, self.grid_node_height - self.ending_margin])
 
 
-    def draw_matrix(self, data: List[List[int]]) -> None:
+    def draw_matrix(self, data: Grid) -> None:
 
         y = 0  # we start at the top of the screen
         for row in data:

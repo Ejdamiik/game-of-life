@@ -14,10 +14,10 @@ Grid = List[List[int]]
 
 
 def cell_value(grid: Grid, x: int, y: int) -> int:
-	"""
-	Function to return value of cell with coords x y in grid
-	if cell is out-of-bounds it returns 0
-	"""
+    """
+    Function to return value of cell with coords x y in grid
+    if cell is out-of-bounds it returns 0
+    """
     if 0 <= x < len(grid) and 0 <= y < len(grid):
         return grid[x][y]
     return 0
@@ -37,7 +37,7 @@ def eval_life(data: Grid) -> Grid:
     """
     Evaluating based on rules
     """
-    
+
     res = [[0 for i in range(len(data[0]))] for j in range(len(data))]
 
     for i in range(len(data)):
@@ -56,7 +56,7 @@ def eval_life(data: Grid) -> Grid:
                     res[i][j] = 0
 
             else:   # Dead cell
-                
+
                 if living == 3:
                     res[i][j] = 1
                 else:
@@ -69,7 +69,7 @@ def life(initial: Grid, generations: int) -> Grid:
     """
     Simulates n- generations of initial setup
     """
-    
+
     for i in range(generations):
         initial = eval_life(initial)
 
