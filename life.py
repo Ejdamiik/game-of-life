@@ -1,4 +1,5 @@
 from typing import List
+
 # │ State │Living neighbours│  Result  │
 # ├───────┼─────────────────┼──────────┤
 # │ alive │       0–1       │    dead  │
@@ -13,6 +14,10 @@ Grid = List[List[int]]
 
 
 def cell_value(grid: Grid, x: int, y: int) -> int:
+	"""
+	Function to return value of cell with coords x y in grid
+	if cell is out-of-bounds it returns 0
+	"""
     if 0 <= x < len(grid) and 0 <= y < len(grid):
         return grid[x][y]
     return 0
@@ -26,6 +31,7 @@ def live_neighbour_count(grid: Grid, x: int, y: int) -> int:
         for col in range(y - 1, y + 2):
             res += cell_value(grid, row, col)
     return res - grid[x][y]
+
 
 def eval_life(data: Grid) -> Grid:
     """

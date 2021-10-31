@@ -111,21 +111,12 @@ class MatrixVizualizer:
     def click(self) -> None:
         """
         Event method for click
+
+        If click action is wanted, we evaluate next generation
+        of life simulation and draw new grid
         """
         self.matrix = life.life(self.matrix, 1)
         self.draw_matrix(self.matrix)
-
-
-    def resize(self, w: int, h: int) -> None:
-        """
-        Draws resized window
-        """
-
-        self.width = w
-        self.height = h
-        self.screen = pg.display.set_mode((self.width, self.height), RESIZABLE)
-
-        pg.display.update()
 
 
     def run_winteract(self) -> None:

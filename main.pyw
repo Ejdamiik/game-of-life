@@ -15,6 +15,7 @@ mode = config["mode"]
 delay = config["delay"]	# ms
 
 
+# We start with random matrix (Change this to start with some special matrix)
 m = matrix_handle.get_random_matrix(m, n)
 
 if mode == 1:
